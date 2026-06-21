@@ -1,0 +1,25 @@
+class Queue:
+    def __init__(self):
+        self.stack=[]
+    def enqueue(self,data):
+        self.stack.append(data)
+
+    def dequeue(self):
+        if len(self.stack)==1:
+            return self.stack.pop()
+        item = self.stack.pop()
+        dequed_item=self.dequeue()
+        self.stack.append(item)
+        return dequed_item
+    
+    
+
+if __name__=='__main__':
+    q=Queue()
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    q.enqueue(40)
+    print("Dequeue Item =%d" % q.dequeue())
+
+    print('-'*25)
